@@ -3,6 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import CategoryFilter from "../components/CategoryFilter";
 import App from "../components/App";
 import { CATEGORIES } from "../data";
+import Task from "../components/Task";
 
 test("displays a button for each category", () => {
   render(<CategoryFilter categories={CATEGORIES} />);
@@ -17,6 +18,9 @@ test("clicking the category button adds a class of 'selected' to the button", ()
   const codeButton = screen.queryByRole("button", { name: "Code" });
   const allButton = screen.queryByRole("button", { name: "All" });
 
+const visibleTask = task.filter(
+  (task) =>category ==="All"
+);
   fireEvent.click(codeButton);
 
   expect(codeButton.classList).toContain("selected");
